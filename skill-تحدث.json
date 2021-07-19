@@ -1,0 +1,233 @@
+{
+  "intents": [
+    {
+      "intent": "الوقت",
+      "examples": [
+        {
+          "text": "الساعة"
+        },
+        {
+          "text": "الساعة كم"
+        },
+        {
+          "text": "الوقت"
+        },
+        {
+          "text": "كم الوقت"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "ترحيب",
+      "examples": [
+        {
+          "text": "أهلا"
+        },
+        {
+          "text": "السلام"
+        },
+        {
+          "text": "السلام عليكم"
+        },
+        {
+          "text": "صباح الخير"
+        },
+        {
+          "text": "صباح النور"
+        },
+        {
+          "text": "مرحبا"
+        },
+        {
+          "text": "مساء الخير"
+        },
+        {
+          "text": "مساء النور"
+        },
+        {
+          "text": "هاي"
+        },
+        {
+          "text": "هلا"
+        },
+        {
+          "text": "هيلو"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [
+    {
+      "entity": "sys-date",
+      "values": [],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sys-number",
+      "values": [],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sys-time",
+      "values": [],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "الساعة",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "الساعة",
+          "synonyms": [
+            "الوقت"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "الساعة كم"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "slot_8_1626652498841",
+      "event_name": "focus",
+      "dialog_node": "handler_2_1626652498842",
+      "previous_sibling": "handler_9_1626652498842"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_8_1626652498841",
+      "context": {
+        "time": "@sys-time"
+      },
+      "conditions": "@sys-time",
+      "event_name": "input",
+      "dialog_node": "handler_9_1626652498842"
+    },
+    {
+      "type": "standard",
+      "title": "ترحيب",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "مرحبا"
+              },
+              {
+                "text": "اهلا"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "#ترحيب",
+      "dialog_node": "node_1_1626649797640",
+      "previous_sibling": "مرحبا"
+    },
+    {
+      "type": "frame",
+      "title": "الساعة",
+      "output": {
+        "generic": []
+      },
+      "conditions": "#الوقت",
+      "dialog_node": "node_2_1626651669818",
+      "previous_sibling": "node_1_1626649797640"
+    },
+    {
+      "type": "slot",
+      "parent": "node_2_1626651669818",
+      "variable": "$time",
+      "dialog_node": "slot_8_1626652498841"
+    },
+    {
+      "type": "standard",
+      "title": "أي شيء آخر",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "لم أفهم، يمكنك محاولة اعادة الصياغة"
+              },
+              {
+                "text": "هل يمكنك اعادة صياغة عبارتك؟ أنا لا فهم"
+              },
+              {
+                "text": "لم أفهم قصدك"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "أي شيء آخر",
+      "previous_sibling": "node_2_1626651669818",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "مرحبا",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "مرحبا، كيف يمكنني مساعدتك؟"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "مرحبا"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "disambiguation": {
+      "prompt": ":هل قصدت",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "كل ما سبق خطأ"
+    },
+    "human_agent_assist": {
+      "prompt": ":هل قصدت"
+    }
+  },
+  "learning_opt_out": false,
+  "name": "تحدث",
+  "language": "ar",
+  "description": ""
+}

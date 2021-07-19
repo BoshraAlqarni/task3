@@ -1,0 +1,176 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title> Control Panel </title>
+<link rel="stylesheet" href="task3.css">
+
+
+</head>
+<body>
+
+<div class="header">
+  <h1>...  حرك ذراع الروبوت  ...</h1>
+  
+</div>
+
+<div class="engine 1">
+<p>محرك 1 </p>
+      <div class="sliderValue">
+        <span>90</span>
+      </div>
+      <div class="field">
+     
+        <input type="range" min="0" max="180" value="90" steps="1"  name="engine1">
+        
+      </div>
+    </div>
+	
+
+	
+	
+	
+	<div class="engine 2">
+	<p>محرك 2 </p>
+      <div class="sliderValue">
+        <span>90</span>
+      </div>
+      <div class="field">
+        
+        <input type="range" min="0" max="180" value="90" steps="1"  name="engine2">
+
+      </div>
+    </div>
+	
+	
+	
+	<div class="engine 3">
+	<p>محرك 3 </p>
+      <div class="sliderValue">
+        <span>90</span>
+      </div>
+      <div class="field">
+     
+        <input type="range" min="0" max="180" value="90" steps="1" name="engine3">
+       
+      </div>
+    </div>
+	
+	
+	<div class="engine 4">
+	<p>محرك 4 </p>
+      <div class="sliderValue">
+        <span>90</span>
+      </div>
+      <div class="field">
+        
+        <input type="range" min="0" max="180" value="90" steps="1"  name="engine4">
+        
+      </div>
+    </div>
+	
+	
+	
+	<div class="engine 5">
+	<p>محرك 5 </p>
+      <div class="sliderValue">
+        <span>90</span>
+      </div>
+      <div class="field">
+       
+        <input type="range" min="0" max="180" value="90" steps="1" name="engine5">
+       
+      </div>
+    </div>
+	
+	
+	
+	<div class="engine 6">
+	<p>محرك 6 </p>
+      <div class="sliderValue">
+        <span>90</span>
+      </div>
+      <div class="field">
+       
+        <input type="range" min="0" max="180" value="90" steps="1" name="engine6">
+       
+      </div>
+    </div>
+	
+	
+	
+	
+	  <br>
+  
+<br>
+<div class="status">
+<input type="radio" name="statuss" id="on" value="ON" />
+<label for="html">تشغيل</label><br>    
+<input type="radio" name="statuss" id="OFF" value="OFF" />
+<label for="html">إيقاف</label><br>
+</div>
+    <br>
+	
+
+<input type="submit" name="save" onClick="reloadpage()"value="حفظ" > </input>
+<br>
+
+    <br>
+
+
+
+<script>
+
+function atLeastOneRadio() {
+    return ($('input[type=radio]:checked').size() > 0);
+}
+
+</script>
+
+
+	
+	
+<script>
+
+const sliderValue = document.querySelector("span");
+const inputSlider = document.querySelector("input");
+
+inputSlider.oninput = (() =>{
+      let value = inputSlider.value;
+      sliderValue.textContent = value;
+      sliderValue.style.left = (value/2) + "%";
+      sliderValue.classList.add("show");
+    })
+inputSlider.onblur = (()=>{
+      sliderValue.classList.remove("show");
+	  
+    });
+</script>	
+
+
+
+
+<script>
+  window.watsonAssistantChatOptions = {
+      integrationID: "78c7d7dc-b32d-420e-9686-f88e9522fcba", // The ID of this integration.
+      region: "eu-gb", // The region your integration is hosted in.
+      serviceInstanceID: "95037f85-bc88-4914-8649-a58e50f0e341", // The ID of your service instance.
+      onLoad: function(instance) { instance.render(); }
+    };
+  setTimeout(function(){
+    const t=document.createElement('script');
+    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js";
+    document.head.appendChild(t);
+  });
+</script>
+
+
+
+
+	
+
+
+</body>
+
+</html>

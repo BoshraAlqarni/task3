@@ -1,0 +1,17 @@
+*{
+  margin:0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
+html, body{
+  display:grid;
+  height:100%;
+  text-align:center;
+  background:azure;
+  background-image: url("https://content.mycutegraphics.com/graphics/balloons/robot-with-balloon.png");
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+
+
